@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RtgStatusController;
-use App\Http\Controllers\WorkOrderController;
 
 // Tampilan Halaman Web
 Route::get('/', function () {
@@ -18,4 +17,8 @@ Route::get('/form', function () {
 })->name('form');
 
 // API & Action Data
-Route::get('/api/rtg-status', [RtgStatusController::class, 'getStatus'])->name('rtg.status');
+Route::get('/api/rtg-status', [RtgStatusController::class, 'getStatus'])
+    ->name('rtg.status');
+
+Route::post('/report/store', [RtgStatusController::class, 'storeReport'])
+    ->name('report.store');

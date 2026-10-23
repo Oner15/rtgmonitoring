@@ -149,12 +149,8 @@
         </div>
         <div class="nav-links">
             <a href="/form"><i class="bi bi-file-earmark-plus"></i> Form Pelaporan</a>
-<<<<<<< HEAD
             <a href="/dashboard" class="active"><i class="bi bi-grid-1x2-fill"></i> Dashboard Monitoring</a>
-=======
-            <a href="/" class="active"><i class="bi bi-grid-1x2-fill"></i> Dashboard Monitoring</a>
             <a href="/penanganan"><i class="bi bi-tools"></i> Penanganan Teknisi</a>
->>>>>>> 5d89033e (penanganan.blade.)
         </div>
     </div>
 
