@@ -1,3 +1,5 @@
+<?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -6,7 +8,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class RtgStatusController extends Controller
 {
-    // Mengambil data RTG untuk API & Tampilan Web
+    // Mengambil data RTG untuk API & Tampilan Web Dashboard
     public function getStatus()
     {
         $rtgs = RtgStatus::all();
@@ -18,6 +20,27 @@ class RtgStatusController extends Controller
         ]);
     }
 
+    // Fungsi untuk menerima & menyimpan laporan kendala unit RTG dari Form
+   public function storeReport(Request $request)
+{
+    $request->validate([
+        'unit_code' => 'required',
+        'pelapor'   => 'required|string',
+    ]);
+
+    RtgStatus::updateOrCreate(
+        ['unit_code' => $request->unit_code],
+        [
+            'block'     => 'A',
+            'status'    => 'perbaikan',
+            'pelapor'   => $request->pelapor,
+            'pra_ops'   => $request->pra_ops,
+            'pasca_ops' => $request->pasca_ops,
+        ]
+    );
+
+    return redirect()->route('dashboard')->with('success', 'Laporan berhasil dikirim!');
+}
     // Fungsi membaca & mengimpor file Excel
     public function importExcel(Request $request)
     {
