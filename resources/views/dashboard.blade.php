@@ -13,7 +13,7 @@
         body { background-color: #f8fafc; color: #0f172a; }
         
         .navbar { 
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
+            background: linear-gradient(135deg, #0f172a 0%, #16c87e 100%); 
             color: white; 
             padding: 16px 40px;
             display: flex;
@@ -149,7 +149,12 @@
         </div>
         <div class="nav-links">
             <a href="/form"><i class="bi bi-file-earmark-plus"></i> Form Pelaporan</a>
+<<<<<<< HEAD
             <a href="/dashboard" class="active"><i class="bi bi-grid-1x2-fill"></i> Dashboard Monitoring</a>
+=======
+            <a href="/" class="active"><i class="bi bi-grid-1x2-fill"></i> Dashboard Monitoring</a>
+            <a href="/penanganan"><i class="bi bi-tools"></i> Penanganan Teknisi</a>
+>>>>>>> 5d89033e (penanganan.blade.)
         </div>
     </div>
 

@@ -1,13 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RtgStatusController;
+use App\Http\Controllers\WorkOrderController;
 
 // Tampilan Halaman Web
 Route::get('/', function () {
     return view('landing');
 });
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -17,7 +17,5 @@ Route::get('/form', function () {
     return view('form');
 })->name('form');
 
-// API & Action Data (Menggunakan string Controller)
-Route::get('/api/rtg-status', 'App\Http\Controllers\RtgStatusController@getStatus')->name('rtg.status');
-Route::post('/report/store', 'App\Http\Controllers\RtgStatusController@storeReport')->name('report.store');
-Route::post('/rtg/import', 'App\Http\Controllers\RtgStatusController@importExcel')->name('rtg.import');
+// API & Action Data
+Route::get('/api/rtg-status', [RtgStatusController::class, 'getStatus'])->name('rtg.status');
