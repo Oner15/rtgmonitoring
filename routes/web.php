@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 
+// Tampilan Halaman Web
 Route::get('/', function () {
     return view('landing');
 });
@@ -10,8 +11,13 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->name('dashboard');
 
 Route::get('/form', function () {
     return view('form');
-});
+})->name('form');
+
+// API & Action Data (Menggunakan string Controller)
+Route::get('/api/rtg-status', 'App\Http\Controllers\RtgStatusController@getStatus')->name('rtg.status');
+Route::post('/report/store', 'App\Http\Controllers\RtgStatusController@storeReport')->name('report.store');
+Route::post('/rtg/import', 'App\Http\Controllers\RtgStatusController@importExcel')->name('rtg.import');

@@ -9,5 +9,12 @@ class RtgStatus extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['unit_code', 'block', 'status'];
+    protected $fillable = [
+        'unit_code',
+        'block',
+        'status',
+        'pelapor',
+        'pra_ops',
+        'pasca_ops',
+    ];
 }

@@ -201,15 +201,17 @@
         <div class="layout">
             <!-- Form Card Utama -->
             <div class="form-card">
-                <form>
+                <form action="{{ route('report.store') }}" method="POST">
+                    @csrf
+
                     <div class="form-row">
                         <div>
                             <label for="pelapor"><i class="bi bi-person-fill" style="color: #2563eb;"></i> 01 Nama Pelapor / Operator</label>
-                            <input type="text" id="pelapor" placeholder="Nama lengkap operator" required>
+                            <input type="text" id="pelapor" name="pelapor" placeholder="Nama lengkap operator" required>
                         </div>
                         <div>
                             <label for="tanggal"><i class="bi bi-calendar-event-fill" style="color: #2563eb;"></i> 02 Tanggal Pelaporan</label>
-                            <input type="date" id="tanggal" value="2026-10-19" required>
+                            <input type="date" id="tanggal" name="tanggal" value="{{ date('Y-m-d') }}" required>
                         </div>
                     </div>
 
@@ -257,12 +259,12 @@
 
                     <div class="form-group">
                         <label for="pra_ops"><i class="bi bi-shield-exclamation" style="color: #2563eb;"></i> 04 Temuan / Kendala Pra-Pengoperasian Alat</label>
-                        <textarea id="pra_ops" placeholder="Contoh: suhu oli hidrolik tinggi saat pemanasan, lampu sorot redup..."></textarea>
+                        <textarea id="pra_ops" name="pra_ops" placeholder="Contoh: suhu oli hidrolik tinggi saat pemanasan, lampu sorot redup..."></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="pasca_ops"><i class="bi bi-tools" style="color: #2563eb;"></i> 05 Temuan / Kendala Pasca-Pengoperasian Alat</label>
-                        <textarea id="pasca_ops" placeholder="Contoh: bunyi gesek pada roda gantry, rem trolley kurang pakem..."></textarea>
+                        <textarea id="pasca_ops" name="pasca_ops" placeholder="Contoh: bunyi gesek pada roda gantry, rem trolley kurang pakem..."></textarea>
                     </div>
 
                     <div class="btn-group">
